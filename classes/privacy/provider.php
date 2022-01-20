@@ -36,9 +36,11 @@ use core_privacy\local\request\contextlist;
 use core_privacy\local\request\writer;
 
 if (interface_exists('\core_privacy\local\request\core_userlist_provider')) {
-    interface userlist_provider extends \core_privacy\local\request\core_userlist_provider{}
+    interface userlist_provider extends \core_privacy\local\request\core_userlist_provider {
+    }
 } else {
-    interface userlist_provider {};
+    interface userlist_provider {
+    }
 }
 
 class provider implements
@@ -112,7 +114,7 @@ class provider implements
      * @param int $userid
      * @return contextlist
      */
-    public static function _get_contexts_for_userid($userid){
+    public static function _get_contexts_for_userid($userid) {
         $contextlist = new contextlist();
         $sql = "SELECT ctx.id
                   FROM {context} ctx

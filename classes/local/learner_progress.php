@@ -101,7 +101,7 @@ class learner_progress {
     public function __construct(stdClass $course, stdClass $user, $progresscalculation = null) {
         $this->course = $course;
         $this->user   = $user;
-        $availablecalculations =  [self::CALCULATE_USING_COURSE_COMPLETION, self::CALCULATE_USING_ALL_ACTIVITIES];
+        $availablecalculations = [self::CALCULATE_USING_COURSE_COMPLETION, self::CALCULATE_USING_ALL_ACTIVITIES];
         if (in_array($progresscalculation, $availablecalculations)) {
             $this->courseprogresscalculation = $progresscalculation;
         } else {
@@ -148,7 +148,7 @@ class learner_progress {
                             $modulecompletiondata = $completion->get_data($module, true, $this->user->id);
                             $completed += $modulecompletiondata->completionstate == COMPLETION_INCOMPLETE ? 0 : 1;
                         }
-                        $this->progresspercentage =  ($completed / $count) * 100;
+                        $this->progresspercentage = ($completed / $count) * 100;
                         if ($coursecompletion->timestarted) {
                             $this->dateenrolled = $coursecompletion->timeenrolled;
                             $this->datestarted = $coursecompletion->timestarted;

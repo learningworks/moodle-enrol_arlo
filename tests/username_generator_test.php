@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 class enrol_arlo_username_generator_testcase extends \core_privacy\tests\provider_testcase {
 
     /**
-     *  @var enrol_arlo_generator $plugingenerator handle to plugin generator.
+     * @var enrol_arlo_generator $plugingenerator handle to plugin generator.
      */
     protected $plugingenerator;
 
@@ -37,7 +37,6 @@ class enrol_arlo_username_generator_testcase extends \core_privacy\tests\provide
         global $CFG;
 
         require_once($CFG->dirroot . '/enrol/arlo/lib.php');
-        /** @var enrol_arlo_generator $plugingenerator */
         $this->plugingenerator = $this->getDataGenerator()->get_plugin_generator('enrol_arlo');
         // Enable and setup plugin.
         $this->plugingenerator->enable_plugin();

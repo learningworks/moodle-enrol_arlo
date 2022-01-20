@@ -71,7 +71,11 @@ class fqdn_updated extends \core\event\base {
      * @return string
      */
     public function get_description() {
-        return "The user with id '$this->userid' updated the field '" . $this->other['name'] . "' from '" . $this->other['oldvalue'] . "' to '" . $this->other['newvalue'] ."'. ";
+        $userid = $this->userid;
+        $fieldname = $this->other['name'];
+        $oldvalue = $this->other['oldvalue'];
+        $newvalue = $this->other['newvalue'];
+        return "The user with id '$userid' updated the field '$fieldname' from '$oldvalue' to '$newvalue'. ";
     }
 
     /**

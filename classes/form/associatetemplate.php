@@ -49,7 +49,9 @@ class associatetemplate extends \moodleform {
         $buttonarray = array();
         $buttonarray[0] = $form->createElement('submit', 'submitbuttonremove', get_string('remove', 'enrol_arlo'));
         $buttonarray[1] = $form->createElement('cancel');
-        $buttonarray[2] = $form->createElement('submit', 'submitbuttonsynchronize', get_string('synchronize', 'enrol_arlo'), [], false);
+        $buttonarray[2] = $form->createElement(
+            'submit', 'submitbuttonsynchronize', get_string('synchronize', 'enrol_arlo'), [], false
+        );
         $form->addGroup($buttonarray, 'buttonarray', '', array(''), false);
         $form->closeHeaderBefore('buttonarray');
     }

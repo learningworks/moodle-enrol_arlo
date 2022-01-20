@@ -207,7 +207,7 @@ class enrol_arlo_generator extends testing_module_generator {
      */
     public function create_event_enrolment_instance($course, event_persistent $event, $data = []) {
         global $DB;
-        /** @var $plugin enrol_arlo_plugin */
+        /** @var enrol_arlo_plugin $plugin */
         $plugin = enrol_get_plugin('arlo');
         $data = array_merge([
             'arlotype' => arlo_type::EVENT,

@@ -216,14 +216,14 @@ class external {
         $root->appendChild($dom->createElement('VendorID', $integrationdata->getVendorID()));
         $manageuri = htmlspecialchars($integrationdata->getManageUri());
         $root->appendChild($dom->createElement('ManageUri', $manageuri));
-        // Link
+        // Link.
         $link = $dom->createElement('Link');
         $attr = $dom->createAttribute('rel');
-        $attr->value = 'self' ;
+        $attr->value = 'self';
         $link->appendChild($attr);
         $root->appendChild($link);
         $attr = $dom->createAttribute('type');
-        $attr->value = 'application/xml' ;
+        $attr->value = 'application/xml';
         $link->appendChild($attr);
         $root->appendChild($link);
         $attr = $dom->createAttribute('href');
@@ -412,7 +412,7 @@ class external {
                 $requestlog->set('status', $statuscode);
             }
             if (isset($message)) {
-               $requestlog->set('extra', $message);
+                $requestlog->set('extra', $message);
             }
             $requestlog->save();
         }

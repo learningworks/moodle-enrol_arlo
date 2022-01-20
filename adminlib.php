@@ -56,7 +56,7 @@ class enrol_arlo_admin_setting_configlockedtext extends admin_setting_configtext
      * @param string $query Passed as final argument for format_admin_setting
      * @return string XHTML field
      */
-    public function output_html($data, $query='') {
+    public function output_html($data, $query = '') {
         $id = $this->get_id();
         $unmask = get_string('unlock', 'enrol_arlo');
         $unmaskjs = '<script type="text/javascript">
@@ -90,8 +90,12 @@ class enrol_arlo_admin_setting_configlockedtext extends admin_setting_configtext
         }
         //]]>
         </script>';
+        $size = $this->size;
+        $name = $this->get_full_name();
+        $value = s($data);
+        $classes = 'form-control text-ltr';
         $html = '<div class="form-text">
-                 <input type="text" class="form-control text-ltr"vsize=" '.$this->size.'" id="'.$id.'" name="'.$this->get_full_name().'" value="'.s($data).'" />
+                 <input type="text" class="'.$classes.'" vsize="'.$size.'" id="'.$id.'" name="'.$name.'" value="'.$value.'" />
                  <div class="unmask" id="'.$id.'unmaskdiv">
                  </div>'.$unmaskjs.'</div>';
         return format_admin_setting($this, $this->visiblename, $html,

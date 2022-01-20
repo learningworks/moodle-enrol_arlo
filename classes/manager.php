@@ -165,7 +165,9 @@ class manager {
             }
             $status = self::email_coursewelcome($instance, $user);
             $deliverystatus = ($status) ? self::EMAIL_STATUS_DELIVERED : self::EMAIL_STATUS_FAILED;
-            self::update_email_status_queue('enrolment', $instance->id, $user->id, self::EMAIL_TYPE_COURSE_WELCOME, $deliverystatus);
+            self::update_email_status_queue(
+                'enrolment', $instance->id, $user->id, self::EMAIL_TYPE_COURSE_WELCOME, $deliverystatus
+            );
         }
         $rs->close();
         // Process expiration emails.
@@ -370,7 +372,8 @@ class manager {
                     'component' => 'enrol_arlo',
                     'itemid' => $instance->id), true);
                 // Final cleanup of subcontexts if there are no more course roles.
-                if (0 == $DB->count_records('role_assignments', ['userid' => $userenrolment->userid, 'contextid' => $userenrolment->contextid])) {
+                $params = ['userid' => $userenrolment->userid, 'contextid' => $userenrolment->contextid];
+                if (0 == $DB->count_records('role_assignments', $params)) {
                     role_unassign_all(array('userid' => $userenrolment->userid,
                         'contextid' => $userenrolment->contextid,
                         'component' => '',

@@ -52,13 +52,13 @@ class enrolment_instances_table_sql extends table_sql {
 
         $countsql = "SELECT COUNT(1)
                        FROM {enrol} e
-                       JOIN {course} c 
+                       JOIN {course} c
                          ON c.id = e.courseid AND e.enrol = 'arlo'";
 
         $this->set_count_sql($countsql, []);
         $fields = 'e.id AS enrolid, c.id AS courseid, e.name, c.fullname AS coursefullname, e.timemodified';
         $from = "{enrol} e
-            JOIN {course} c 
+            JOIN {course} c
               ON c.id = e.courseid AND e.enrol = 'arlo'";
         $this->set_sql($fields, $from, 'e.timemodified <> 0');
 

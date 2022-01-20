@@ -31,6 +31,7 @@ defined('MOODLE_INTERNAL') || die();
 
 class enrol_arlo_privacy_provider_testcase extends \core_privacy\tests\provider_testcase {
 
+    /** @var enrol_arlo_generator */
     protected $plugingenerator;
 
     public function setUp() : void {
@@ -40,7 +41,7 @@ class enrol_arlo_privacy_provider_testcase extends \core_privacy\tests\provider_
         if (!class_exists('core_privacy\manager')) {
             $this->markTestSkipped('Moodle version does not support privacy subsystem.');
         }
-        /** @var enrol_arlo_generator $plugingenerator */
+
         $this->plugingenerator = $this->getDataGenerator()->get_plugin_generator('enrol_arlo');
         // Enable and setup plugin.
         $this->plugingenerator->enable_plugin();
@@ -153,7 +154,7 @@ class enrol_arlo_privacy_provider_testcase extends \core_privacy\tests\provider_
         enrol_get_plugin('arlo')->enrol($enrolinstance1, $user1);
         enrol_get_plugin('arlo')->enrol($enrolinstance1, $user2);
 
-        $sql =  "SELECT COUNT(gm.id)
+        $sql = "SELECT COUNT(gm.id)
                    FROM {groups_members} gm
                    JOIN {groups} g ON gm.groupid = g.id
                   WHERE g.courseid = ? ";
@@ -207,7 +208,7 @@ class enrol_arlo_privacy_provider_testcase extends \core_privacy\tests\provider_
 
         $this->setUser($user1);
 
-        $sql =  "SELECT COUNT(gm.id)
+        $sql = "SELECT COUNT(gm.id)
                    FROM {groups_members} gm
                    JOIN {groups} g ON gm.groupid = g.id
                   WHERE g.courseid = ? ";
@@ -270,7 +271,7 @@ class enrol_arlo_privacy_provider_testcase extends \core_privacy\tests\provider_
 
         $this->setUser($user1);
 
-        $sql =  "SELECT COUNT(gm.id)
+        $sql = "SELECT COUNT(gm.id)
                    FROM {groups_members} gm
                    JOIN {groups} g ON gm.groupid = g.id
                   WHERE g.courseid = ? ";

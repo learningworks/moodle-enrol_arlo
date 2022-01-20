@@ -82,7 +82,7 @@ if (confirm_sesskey() and $confirm == true) {
 } else if (confirm_sesskey()) {
     echo $OUTPUT->header();
     echo $OUTPUT->heading(get_string('synchroniseinstancefor', 'enrol_arlo', $instance->name));
-    $params = array('confirm' => true, 'full' => $full,'sesskey' => sesskey(), 'id' => $instance->id);
+    $params = array('confirm' => true, 'full' => $full, 'sesskey' => sesskey(), 'id' => $instance->id);
     $confirmurl = new moodle_url('/enrol/arlo/synchronizeinstance.php', $params);
     echo $OUTPUT->notification(
         get_string('manualsynchronisenotice', 'enrol_arlo'),

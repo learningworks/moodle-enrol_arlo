@@ -14,8 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Observer configuration file.
  *
@@ -23,6 +21,9 @@ defined('MOODLE_INTERNAL') || die();
  * @author      Troy Williams
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+defined('MOODLE_INTERNAL') || die();
+
 $observers = [
     // Watch for a course module being marked complete for a user.
     [

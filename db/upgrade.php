@@ -378,7 +378,7 @@ function xmldb_enrol_arlo_upgrade($oldversion) {
         upgrade_plugin_savepoint(true, 2018100500, 'enrol', 'arlo');
     }
 
-    // Upgrade v3.6.x
+    // Upgrade v3.6.x.
     if ($oldversion < 2019051505) {
 
         // Set username generator order configuration setting.
@@ -400,7 +400,7 @@ function xmldb_enrol_arlo_upgrade($oldversion) {
         upgrade_plugin_savepoint(true, 2019051505, 'enrol', 'arlo');
     }
 
-    // Upgrade v3.7.x
+    // Upgrade v3.7.x.
     if ($oldversion < 2019091700) {
 
         // Define field contenturi to be added to enrol_arlo_event.
@@ -427,7 +427,7 @@ function xmldb_enrol_arlo_upgrade($oldversion) {
 
     }
 
-    // Upgrade v3.8.x
+    // Upgrade v3.8.x.
     if ($oldversion < 2019111400) {
 
         // Enable new functionality by default.
@@ -497,14 +497,12 @@ function xmldb_enrol_arlo_upgrade($oldversion) {
         $table = new xmldb_table('enrol_arlo_templateassociate');
         $key = new xmldb_key('usermodified', XMLDB_KEY_FOREIGN, ['usermodified'], 'user', ['id']);
 
-
         // Launch add key usermodified.
         $dbman->add_key($table, $key);
 
         // Arlo savepoint reached.
         upgrade_plugin_savepoint(true, 2020070315, 'enrol', 'arlo');
     }
-
 
     return true;
 }
