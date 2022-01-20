@@ -91,6 +91,6 @@ if (confirm_sesskey() and $confirm == true) {
     echo $OUTPUT->confirm(get_string('manualsynchronisenotice', 'enrol_arlo'), $confirmurl, $returnurl);
 } else {
     echo $OUTPUT->header();
-    echo print_error('nopermissions', 'error', '', 'please ensure you are signed in and have permission');
+    throw new moodle_exception('nopermissions', 'error', '', 'please ensure you are signed in and have permission');
 }
 echo $OUTPUT->footer();
