@@ -36,13 +36,18 @@ use core_privacy\local\request\contextlist;
 use core_privacy\local\request\writer;
 
 if (interface_exists('\core_privacy\local\request\core_userlist_provider')) {
+    // @codingStandardsIgnoreLine
     interface userlist_provider extends \core_privacy\local\request\core_userlist_provider {
     }
 } else {
+    // @codingStandardsIgnoreLine
     interface userlist_provider {
     }
 }
 
+/**
+ * phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
+ */
 class provider implements
     \core_privacy\local\metadata\provider,
     \core_privacy\local\request\plugin\provider,
